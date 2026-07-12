@@ -22,4 +22,10 @@ app.use(cookieParser());//middleware that parses cookies attached to the client 
 //It populates the req.cookies object with the parsed cookies, allowing the server to access and
 //  manipulate cookie data easily.
 
+import userRoutes from './routes/user.routes.js';
+//route declaration
+app.use("/api/v1/users", userRoutes);//middleware that mounts the userRoutes router on the /users path.
+app.get("/", (req, res) => {
+    res.send("Server is working");
+});
 export default app;
